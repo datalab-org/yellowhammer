@@ -3037,7 +3037,7 @@ wheels = [
 
 [[package]]
 name = "yellowhammer"
-version = "0.1.dev5+g217ecd5.d20241007"
+version = "0.1.dev6+gd141849.d20241007"
 source = { editable = "." }
 dependencies = [
     { name = "datalab-api" },
@@ -3061,6 +3061,7 @@ requires-dist = [
     { name = "jupyterlab", specifier = ">=4.2.5" },
     { name = "langchain-anthropic", specifier = ">=0.1.23" },
     { name = "langchain-openai", specifier = ">=0.1.25" },
+    { name = "yellowhammer" },
 ]
 
 [package.metadata.requires-dev]

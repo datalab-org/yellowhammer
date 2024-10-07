@@ -19,12 +19,12 @@ This repository will explore using the Jupyter AI plugin to provide an agentic i
 ## Installation
 
 This repository uses [`uv`](https://docs.astral.sh/uv/) for the entire packaging workflow.
-Once you have installed `uv` following their documentation, you can install this repository by cloning and running `uv sync` in the root directory.
+Once you have installed `uv` following their documentation, you can install this repository by cloning and running `uv sync` in the root directory (optionally with `--dev` if you plan to develop it further).
 
 ```shell
 git clone git@github.com:datalab-org/yellowhammer
 cd yellowhammer
-uv sync
+uv sync --dev
 ```
 
 ### Launching example notebooks
