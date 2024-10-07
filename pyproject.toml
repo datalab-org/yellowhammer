@@ -1,0 +1,36 @@
+[project]
+name = "yellowhammer"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dynamic = ["version"]
+dependencies = [
+    "datalab-api>=0.2.4",
+    "jupyter-ai>=2.24.1",
+    "jupyterlab>=4.2.5",
+    "langchain-anthropic>=0.1.23",
+    "langchain-openai>=0.1.25",
+]
+
+[project.urls]
+homepage = "https://github.com/datalab-org/yellowhammer"
+repository = "https://github.com/datalab-org/yellowhammer"
+documentation = "https://github.com/datalab-org/yellowhammer"
+
+[build-system]
+requires = ["setuptools >= 70", "setuptools_scm ~= 8.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+fallback_version = "0.1.0"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_imports = "skip"
+
+[tool.uv]
+dev-dependencies = ["ipykernel>=6.29.5", "pre-commit>=4.0.0", "pytest>=8.3.3"]
