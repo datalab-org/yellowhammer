@@ -36,5 +36,12 @@ uv run jupyter lab examples/
 ```
 
 The examples will require you to bring your own *datalab* API key (for your instance of choice) and API keys for any underlying LLM providers (OpenAI, Anthropic, etc.).
+
+These can be set in your shell profile, or simply in your shell before launching Jupyter, using:
+```bash
+export OPENAI_API_KEY=sk-proj...
+export ANTHROPIC_API_KEY=sk-ant...
+```
+
 `yellowhammer` by default will come preloaded with the relevant OpenAI and Anthropic packages.
 You can see how to configure other providers in the [Jupyter AI plugin documentation](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers).
