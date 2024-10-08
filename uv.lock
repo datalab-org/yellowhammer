@@ -1742,6 +1742,22 @@ wheels = [
 ]
 
 [[package]]
+name = "notebook"
+version = "7.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jupyter-server" },
+    { name = "jupyterlab" },
+    { name = "jupyterlab-server" },
+    { name = "notebook-shim" },
+    { name = "tornado" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0f/33/30b83c1c84e368087059bde1269549612584924db156bff53654e165a498/notebook-7.2.2.tar.gz", hash = "sha256:2ef07d4220421623ad3fe88118d687bc0450055570cdd160814a59cf3a1c516e", size = 4948876 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/46/77/53732fbf48196af9e51c2a61833471021c1d77d335d57b96ee3588c0c53d/notebook-7.2.2-py3-none-any.whl", hash = "sha256:c89264081f671bc02eec0ed470a627ed791b9156cad9285226b31611d3e9fe1c", size = 5037123 },
+]
+
+[[package]]
 name = "notebook-shim"
 version = "0.2.4"
 source = { registry = "https://pypi.org/simple" }
@@ -3037,7 +3053,7 @@ wheels = [
 
 [[package]]
 name = "yellowhammer"
-version = "0.1.dev6+gd141849.d20241007"
+version = "0.1.dev8+g117550e.d20241008"
 source = { editable = "." }
 dependencies = [
     { name = "datalab-api" },
@@ -3045,6 +3061,7 @@ dependencies = [
     { name = "jupyterlab" },
     { name = "langchain-anthropic" },
     { name = "langchain-openai" },
+    { name = "notebook" },
 ]
 
 [package.dev-dependencies]
@@ -3061,6 +3078,7 @@ requires-dist = [
     { name = "jupyterlab", specifier = ">=4.2.5" },
     { name = "langchain-anthropic", specifier = ">=0.1.23" },
     { name = "langchain-openai", specifier = ">=0.1.25" },
+    { name = "notebook", specifier = ">=7.2.2" },
     { name = "yellowhammer" },
 ]
 

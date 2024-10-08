@@ -10,6 +10,7 @@ dependencies = [
     "jupyterlab>=4.2.5",
     "langchain-anthropic>=0.1.23",
     "langchain-openai>=0.1.25",
+    "notebook>=7.2.2",
     "yellowhammer",
 ]
 
