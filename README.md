@@ -1,5 +1,6 @@
 <div align="center">
-  <img src=https://github.com/user-attachments/assets/9920260a-ea2d-41dd-8397-7add082ee5f9 width=300>
+
+![h5dy6uwcdiam1zo96es](https://github.com/user-attachments/assets/1712b106-9ab9-4ea3-a697-d5b4686d9070)
 
 # yeLLowhaMmer
 
