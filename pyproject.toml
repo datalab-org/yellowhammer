@@ -8,6 +8,7 @@ dependencies = [
     "datalab-api>=0.2.4",
     "jupyter-ai>=2.24.1",
     "jupyterlab>=4.2.5",
+    "langchain>=0.2.16",
     "langchain-anthropic>=0.1.23",
     "langchain-openai>=0.1.25",
     "notebook>=7.2.2",
