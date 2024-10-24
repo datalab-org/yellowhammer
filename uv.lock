@@ -3053,7 +3053,7 @@ wheels = [
 
 [[package]]
 name = "yellowhammer"
-version = "0.1.dev11+gf3789f6.d20241022"
+version = "0.1.dev12+g7b44707.d20241024"
 source = { editable = "." }
 dependencies = [
     { name = "datalab-api" },

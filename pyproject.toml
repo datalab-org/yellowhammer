@@ -36,4 +36,8 @@ ignore_missing_imports = true
 follow_imports = "skip"
 
 [tool.uv]
-dev-dependencies = ["ipykernel>=6.29.5", "pre-commit>=4.0.0", "pytest>=8.3.3"]
+dev-dependencies = [
+    "ipykernel>=6.29.5",
+    "pre-commit>=4.0.0",
+    "pytest>=8.3.3",
+]
