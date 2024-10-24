@@ -33,9 +33,9 @@ def get_output(messages, temp=0.1):
 
 # Class to manage state and expose the main magics
 @magics_class
-class datalabMagics(Magics):
+class DatalabMagics(Magics):
     def __init__(self, shell):
-        super(datalabMagics, self).__init__(shell)
+        super(DatalabMagics, self).__init__(shell)
         self.messages = []
 
     # A datalab magic that returns a code block
