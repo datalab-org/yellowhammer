@@ -55,7 +55,7 @@ with DatalabClient("https://demo.datalab-org.io") as client:
 Here is an abridged JSONSchema for a sample, that also has some info about other
 types.
 
-```json 
+```json
 {
   "title": "Sample",
   "description": "A model for representing an experimental sample.",
