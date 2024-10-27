@@ -25,6 +25,25 @@ class FinalResponse(BaseModel):
     final_output: Union[code, ConversationalResponse]
 
 
+def error_parser(output):
+    """
+    Parse the API output to handle errors gracefully.
+    """
+    if output["parsing_error"]:
+        raw_output = str(output["raw"].content)
+        error = output["parsing_error"]
+        out_string = f"Error parsing LLM output. Parse error: {error}. \n Raw output: {raw_output}"
+        return FinalResponse(final_output=ConversationalResponse(response=out_string))
+    
+    elif not output["parsed"]:
+        raw_output = str(output["raw"].content)
+        out_string = f"Error in LLM response. \n Raw output: {raw_output}"
+        return FinalResponse(final_output=ConversationalResponse(response=out_string))
+    
+    else:
+        # Return the parsed output (should be FinalResponse)
+        return output["parsed"]
+
 def get_chain(
     api_provider,
     api_key,
@@ -62,7 +81,6 @@ def get_chain(
     )
 
     # Create a chain where the final output takes the FinalResponse schema
-    chain = prompt | llm.with_structured_output(FinalResponse, include_raw=False)
-
+    chain = prompt | llm.with_structured_output(FinalResponse, include_raw=True) | error_parser
     # Returns a runnable chain which accepts datalab API documentation "context" and user question "messages"
     return chain
