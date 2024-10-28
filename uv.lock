@@ -847,6 +847,15 @@ wheels = [
 ]
 
 [[package]]
+name = "httpx-sse"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4c/60/8f4281fa9bbf3c8034fd54c0e7412e66edbab6bc74c4996bd616f8d0406e/httpx-sse-0.4.0.tar.gz", hash = "sha256:1e81a3a3070ce322add1d3529ed42eb5f70817f45ed6ec915ab753f961139721", size = 12624 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/9b/a181f281f65d776426002f330c31849b86b31fc9d848db62e16f03ff739f/httpx_sse-0.4.0-py3-none-any.whl", hash = "sha256:f329af6eae57eaa2bdfd962b42524764af68075ea87370a2de920af5341e318f", size = 7819 },
+]
+
+[[package]]
 name = "huggingface-hub"
 version = "0.25.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1415,6 +1424,47 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/83/b3/b1ccde47c86c5fe2585dc012555cff7949c556bd6993dd9c09e49a356190/langchain_text_splitters-0.2.4.tar.gz", hash = "sha256:f7daa7a3b0aa8309ce248e2e2b6fc8115be01118d336c7f7f7dfacda0e89bf29", size = 20236 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8f/f3/d01591229e9d0eec1e8106ed6f9b670f299beb1c94fed4aa335afa78acb0/langchain_text_splitters-0.2.4-py3-none-any.whl", hash = "sha256:2702dee5b7cbdd595ccbe43b8d38d01a34aa8583f4d6a5a68ad2305ae3e7b645", size = 25552 },
+]
+
+[[package]]
+name = "langgraph"
+version = "0.2.39"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-core" },
+    { name = "langgraph-checkpoint" },
+    { name = "langgraph-sdk" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/2c/ba/eb6da29e5c4608191c00cb9ad1dbfb0686a02441ff52f16c216e6bd2d823/langgraph-0.2.39.tar.gz", hash = "sha256:32af60291f9260c3acb8a3d4bec99e32abd89ddb6b4a10a79aa3dbc90fa920ac", size = 94566 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/72/67/ffad3820b879aa7f6f6956d4499d59017e51e944addaf6121dd3fc06eb21/langgraph-0.2.39-py3-none-any.whl", hash = "sha256:5dfbdeefbf599f16d245799609f2b43c1ec7a7e8ed6e1d7981b1a7979a4ad7fe", size = 113522 },
+]
+
+[[package]]
+name = "langgraph-checkpoint"
+version = "2.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-core" },
+    { name = "msgpack" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/22/49/8596e8f51299fd035515704da305b77965f937cb2175277a7740dde7e492/langgraph_checkpoint-2.0.2.tar.gz", hash = "sha256:c1d033e4e4855f580fa56830327eb86513b64ab5be527245363498e76b19a0b9", size = 20362 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d7/8e/78872f64d4b37dddc5ab06ad214a74dab4d56140b09169ae86881392328c/langgraph_checkpoint-2.0.2-py3-none-any.whl", hash = "sha256:6e5dfd90e1fc71b91ccff75939ada1114e5d7f824df5f24c62d39bed69039ee2", size = 23349 },
+]
+
+[[package]]
+name = "langgraph-sdk"
+version = "0.1.34"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "httpx-sse" },
+    { name = "orjson" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9a/2c/6d0afafac86b3c59726c2b845b392147160f1647221ddbc4f8e648dc8939/langgraph_sdk-0.1.34.tar.gz", hash = "sha256:ee76507018414a08bcf63e0de916e956340ee2e9b5c60d5252d1b2b1fe47c5f3", size = 27625 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9b/00/454f94ab2754392f5cb78bf8f8ea005ae1cfef17d257103126d19e3968c7/langgraph_sdk-0.1.34-py3-none-any.whl", hash = "sha256:3c44967382e073055c1731d9dde004a49ca04a063183747031b8a8286bad0b19", size = 28439 },
 ]
 
 [[package]]
@@ -3053,7 +3103,7 @@ wheels = [
 
 [[package]]
 name = "yellowhammer"
-version = "0.1.dev12+g7b44707.d20241024"
+version = "0.1.dev13+g9635fe6.d20241028"
 source = { editable = "." }
 dependencies = [
     { name = "datalab-api" },
@@ -3062,6 +3112,7 @@ dependencies = [
     { name = "langchain" },
     { name = "langchain-anthropic" },
     { name = "langchain-openai" },
+    { name = "langgraph" },
     { name = "notebook" },
 ]
 
@@ -3080,6 +3131,7 @@ requires-dist = [
     { name = "langchain", specifier = ">=0.2.16" },
     { name = "langchain-anthropic", specifier = ">=0.1.23" },
     { name = "langchain-openai", specifier = ">=0.1.25" },
+    { name = "langgraph", specifier = ">=0.2.39" },
     { name = "notebook", specifier = ">=7.2.2" },
     { name = "yellowhammer" },
 ]
