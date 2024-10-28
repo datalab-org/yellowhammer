@@ -54,7 +54,7 @@ class DatalabMagics(Magics):
         "-T",
         "--temp",
         type=float,
-        default=0.0,
+        default=0.1,
         help="""Temperature, float in [0,1]. Higher values push the algorithm
         to generate more aggressive/"creative" output. [default=0.1].""",
     )
