@@ -13,10 +13,12 @@ class Code(BaseModel):
     imports: str = Field(description="Code block import statements")
     code: str = Field(description="Code block not including import statements")
 
+
 class ConversationalResponse(BaseModel):
     """Respond in a conversational manner. Be kind and helpful."""
 
     response: str = Field(description="A conversational response to the user's query")
+
 
 class FinalResponse(BaseModel):
     """
@@ -25,6 +27,7 @@ class FinalResponse(BaseModel):
     """
 
     final_output: Union[Code, ConversationalResponse]
+
 
 # Check for errors in the structured output
 def error_parser(output):
@@ -48,7 +51,7 @@ def error_parser(output):
 
 
 def get_chain(
-    messages, # ChatPromptTemplate
+    messages,  # ChatPromptTemplate
     api_provider,
     api_key,
     api_model=None,
@@ -88,5 +91,5 @@ def get_chain(
 
     # Create a chain where the final output takes the FinalResponse schema
     chain = messages | llm.with_structured_output(FinalResponse, include_raw=True) | error_parser
-    
+
     return chain
