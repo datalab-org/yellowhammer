@@ -1,3 +1,8 @@
+# Preparing prmopt for when datalab block search is implemented in API
+
+
+Datalab is data management platform. We refer to an instance of datalab as "a datalab". One datalab is typically used to capture experimental data for a single research group. The datalab consists of a database of "items" which have types such as "sample". Each item contains "data blocks" which contain information about the item. Block types are shared across the datalab and described by a JSON schema.
+
 Assume `DATALAB_URL` has been set by an environment variable.
 
 Retrieve the datalab instance URL from the environment variable `DATALAB_URL`.
@@ -7,11 +12,7 @@ from the JSON response of the Datalab API.
 
 Assume `DATALAB_API_KEY` have been set an environment variable.
 
-Datalab uses "data blocks" to take a file attached to a sample, parse it
-according to some scientific schema, and then make a plot.
-
 The rest of this prompt contains the README for the datalab python API module `datalab_api`, which you already have installed.
-
 
 Python API
 This package implements basic functionality for displaying and manipulating entries:
@@ -19,7 +20,7 @@ This package implements basic functionality for displaying and manipulating entr
 ```python
 from datalab_api import DatalabClient
 
-with DatalabClient(os.getenv('DATALAB_URL')) as client:
+with DatalabClient(<DATALAB_URL>) as client:
 
     # Get the info about this datalab instance
     client.get_info()
@@ -55,6 +56,38 @@ with DatalabClient(os.getenv('DATALAB_URL')) as client:
     graph = client.get_item_graph()
 
 ```
+
+If you are asked to search through data blocks for unlisted information, first use the client.get_block_info() function, which returns a list of block definitions in JSON format. **IMPORTANT: block schemas are defined across the datalab and blocks are contained within samples. Samples are also defined by JSON schemas. Do not confuse blocks and samples.**
+
+Each block has the following structure:
+    attributes: Contains key details about the block.
+        accepted_file_extensions: Specifies a list of file extensions the block can process. If the block does not support files, this is empty or null.
+        description: A brief description of what the block does.
+        name: The name of the block, indicating its purpose.
+        version: The version number of the block.
+    id: A unique identifier for the block.
+    type: Specifies the general category or type of the block.
+
+Generic block structure
+{
+    "attributes": {
+        "accepted_file_extensions": [".txt", ".wdf"],
+        "description": "Visualize 1D Raman spectroscopy data.",
+        "name": "Raman spectroscopy",
+        "version": "0.1.0"
+    },
+    "id": "raman",
+    "type": "block_type"
+}
+
+How to Use
+
+    Search by Block Type: Filter through blocks by checking the type attribute to identify blocks belonging to a specific category, such as "block_type".
+    File Compatibility: Identify which block can process a specific file format by searching within accepted_file_extensions.
+    Description and Purpose: To understand the functionality of each block, examine the description attribute.
+    Versioning: Note that each block's version attribute can help in identifying if certain features are available based on the block's version.
+
+For instance, if you need a block that supports .txt files for mass spectrometry, you would look for blocks with "accepted_file_extensions": [".txt"] and "name": "Mass spectrometry".
 
 Here is an abridged JSONSchema for a sample, that also has some info about other
 types.

@@ -519,16 +519,13 @@ wheels = [
 
 [[package]]
 name = "datalab-api"
-version = "0.2.4"
-source = { registry = "https://pypi.org/simple" }
+version = "0.2.7.post5+ge8f3058"
+source = { git = "https://github.com/datalab-org/datalab-api.git#e8f30588c5e5500850bd29b72439ee0d80e6d81c" }
 dependencies = [
     { name = "bokeh" },
     { name = "httpx" },
+    { name = "numpy" },
     { name = "rich" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/cf/83/e3cf103831ecedf6e07859a246b02eca06816f46bdefcd428b5ec0d337e1/datalab_api-0.2.4.tar.gz", hash = "sha256:81d356c508bb895e30964bd9097137e3e9b5a80604ed2db88164525e710b270b", size = 18711 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c7/4b/ea46f265b740b9d5d06cea294d127d12a18dbd53a8487db07bf97805b8ab/datalab_api-0.2.4-py3-none-any.whl", hash = "sha256:6912473f726cd0ae1070e69daca2fbae38201b94c443ae63c8c51e4269de5b35", size = 15854 },
 ]
 
 [[package]]
@@ -3103,7 +3100,7 @@ wheels = [
 
 [[package]]
 name = "yellowhammer"
-version = "0.1.dev13+g9635fe6.d20241028"
+version = "0.1.dev23+g6ccad75.d20241109"
 source = { editable = "." }
 dependencies = [
     { name = "datalab-api" },
@@ -3125,7 +3122,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "datalab-api", specifier = ">=0.2.4" },
+    { name = "datalab-api", git = "https://github.com/datalab-org/datalab-api.git" },
     { name = "jupyter-ai", specifier = ">=2.24.1" },
     { name = "jupyterlab", specifier = ">=4.2.5" },
     { name = "langchain", specifier = ">=0.2.16" },
