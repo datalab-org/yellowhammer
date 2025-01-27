@@ -50,6 +50,26 @@ def error_parser(output):
         return output["parsed"]
 
 
+def error_parser(output):
+    """
+    Parse the API output to handle errors gracefully.
+    """
+    if output["parsing_error"]:
+        raw_output = str(output["raw"].content)
+        error = output["parsing_error"]
+        out_string = f"Error parsing LLM output. Parse error: {error}. \n Raw output: {raw_output}"
+        return FinalResponse(final_output=ConversationalResponse(response=out_string))
+
+    elif not output["parsed"]:
+        raw_output = str(output["raw"].content)
+        out_string = f"Error in LLM response. \n Raw output: {raw_output}"
+        return FinalResponse(final_output=ConversationalResponse(response=out_string))
+
+    else:
+        # Return the parsed output (should be FinalResponse)
+        return output["parsed"]
+
+
 def get_chain(
     messages,  # ChatPromptTemplate
     api_provider,

@@ -166,10 +166,7 @@ examples/Demo_yue.ipynb
 examples/yue_examples
 
 # Test notebook
-examples/Demo_yue.ipynb
-examples/yue_examples
 examples/FA-Mn-H2PO2.raw
-src/yellowhammer/yue_test.ipynb
 examples/Demo_flagship.ipynb
 examples/HL1-5_5-90_30min.xrdml
 examples/IMG_1648.jpg
