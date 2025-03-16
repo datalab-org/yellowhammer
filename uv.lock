@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.10"
 resolution-markers = [
     "python_full_version < '3.12'",
@@ -519,13 +520,17 @@ wheels = [
 
 [[package]]
 name = "datalab-api"
-version = "0.2.7.post5+ge8f3058"
-source = { git = "https://github.com/datalab-org/datalab-api.git#e8f30588c5e5500850bd29b72439ee0d80e6d81c" }
+version = "0.2.9"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "bokeh" },
+    { name = "bokeh", marker = "sys_platform != 'emscripten'" },
     { name = "httpx" },
     { name = "numpy" },
     { name = "rich" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f5/d7/27d4404af1b010548a17142c11d2b4a0a6b6217155d0554cfe98d0e004f5/datalab_api-0.2.9.tar.gz", hash = "sha256:9df8682bcf6ecff648aadec83a1ee727fb3853188e2afe97b27abd1730a0d618", size = 19599 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/0a/62153d79a0e85beb7b34450cdb1bf12949c1078c7b03768bc4e9f368cfb6/datalab_api-0.2.9-py3-none-any.whl", hash = "sha256:ef3cbb1dbf2b844b3f44e1de2f37eafebe98a4ff861b309426e48fefef56bf5a", size = 16528 },
 ]
 
 [[package]]
@@ -3119,7 +3124,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "datalab-api", git = "https://github.com/datalab-org/datalab-api.git" },
+    { name = "datalab-api", specifier = ">=0.2.9" },
     { name = "jupyter-ai", specifier = ">=2.24.1" },
     { name = "jupyterlab", specifier = ">=4.2.5" },
     { name = "langchain", specifier = ">=0.2.16" },
@@ -3127,7 +3132,6 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=0.1.25" },
     { name = "langgraph", specifier = ">=0.2.39" },
     { name = "notebook", specifier = ">=7.2.2" },
-    { name = "yellowhammer" },
 ]
 
 [package.metadata.requires-dev]
